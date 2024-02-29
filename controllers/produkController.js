@@ -36,6 +36,15 @@ function checkFileType(file, cb) {
     }
 }
 
+// Schema validasi Joi untuk data produk
+const produkSchema = Joi.object({
+    nama_produk: Joi.string().required(),
+    harga: Joi.number().required(),
+    deskripsi: Joi.string().required(),
+    stok: Joi.number().required(),
+    id_kategori: Joi.number().required(),
+});
+
 // Middleware multer untuk upload file
 const upload = multer({
     storage: storage,
